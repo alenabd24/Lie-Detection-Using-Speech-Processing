@@ -1,15 +1,23 @@
-# MS MARCO Passage Ranking with SBERT
+# Deception Detection Using Speech Processing
 
 ![Block Diagram](block_diagrams.png)
 
-This project implements a re-ranking pipeline for the MS MARCO Passage Ranking dataset using Sentence-BERT (SBERT). The goal is to train a model that scores passages based on their semantic relevance to a given query, enabling more accurate search and retrieval.
+## Research Question
+Can a machine learning model, trained on extracted audio features, accurately distinguish between truthful and deceptive speech across various natural languages?
 
-The pipeline uses supervised learning with relevance labels (`qrels`) to fine-tune SBERT on query-passage pairs. After training, the model is evaluated using metrics such as MRR and nDCG on a held-out development set to assess generalization.
+## Objective
+- To design and implement a machine learning-based system that classifies speech recordings as truthful or deceptive.
+- To extract and analyze acoustic features that may indicate patterns of deception.
+- To evaluate multiple models and compare their performance using classification metrics.
 
-Key features:
-- Preprocessing of collection, queries, and qrels files
-- Pointwise training of SBERT for binary relevance classification
-- Evaluation on dev queries using standard IR metrics
-- Designed for modular extension with hard negatives or alternate ranking losses
+## Project Structure
+- `Project Report.ipynb`: Main notebook containing all code, feature extraction, model training, evaluation, and analysis.
+- `data/`: Folder where audio datasets (not included here) should be stored.
+- `features/`: Stores extracted features (optional if not regenerated each run).
+- `models/`: Saved models and related artifacts.
 
-This repository is ideal for researchers and practitioners interested in semantic search, neural ranking models, and reproducible information retrieval experiments.
+## Methods Used
+- Audio processing using `librosa` and `pydub`
+- Feature extraction (MFCCs, pitch, energy, etc.)
+- Machine learning models: Logistic Regression, Random Forest, and Support Vector Machines
+- Evaluation metrics: Accuracy, Precision, Recall, F1-Score
